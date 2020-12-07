@@ -75,20 +75,23 @@ case 'Figura 10'
     [t,y] = ode45(@solve10_foo,tspan, init);
     %subplot(1,2,1), plot3(y(:,2),y(:,1),y(:,3))
     plot3(handles.axes1,y(:,2),y(:,1),y(:,3))
-    ax = gca;
-    ax.YDir = 'reverse';
-     xlabel('y'); ylabel('x'); zlabel('z');
-     zlim([-4 1.5]); ylim([-4 3.5]); xlim([-2.5 2]);
-     title ('Primo grafico')
-     %figure
-     %subplot(1,2,2), plot3(y(:,1),y(:,4),y(:,2))
-    plot3(handles.axes2, y(:,1),y(:,4),y(:,2))
-    ax = gca;
-    ax.YDir = 'reverse';
-    xlabel('x'); ylabel('w'); zlabel('y');
-    zlim([-2.5 2]); ylim([-2 2]); xlim([-4 3.5]);
-    title ('Secondo Grafico')
-    grid
+    set(handles.axes1, 'YDir', 'reverse');
+    %axes limits
+    set(handles.axes1,'XLim', [-2.5 2]);
+     set(handles.axes1,'YLim', [-4 3.5]);
+     set(handles.axes1,'ZLim', [-4 1.5]);
+     %axes labels
+     xlabel(handles.axes1,'Y'); ylabel(handles.axes1,'X'); zlabel(handles.axes1,'Z');
+    
+    plot3(handles.axes2, y(:,1),y(:,4),y(:,2), 'Color', 'r')
+    set(handles.axes2, 'YDir', 'reverse');
+   %axes limits
+    set(handles.axes2,'ZLim', [-2.5 2]);
+     set(handles.axes2,'YLim', [-2 2]);
+     set(handles.axes2,'XLim', [-4 3.5]);
+    %axes labels
+     xlabel(handles.axes2,'X'); ylabel(handles.axes2,'W'); zlabel(handles.axes2,'Y');
+    
     hold on;
     set(handles.axes2, 'Visible', 'on');
 case 'Figura 12' 
@@ -105,19 +108,25 @@ case 'Figura 12'
     init = [x0_var y0_var z0_var w0_var];
     [t,y] = ode23s(@solve12_foo,tspan, init);
    plot3(handles.axes1,y(:,2),y(:,1),y(:,3))
-    ax = gca;
-    %ax.XDir = 'reverse';
-    ax.YDir = 'reverse';
-     xlabel('y'); ylabel('x'); zlabel('z');
-     zlim([-50 60]); ylim([-20 20]); xlim([-15 15]);
-     title ('Primo grafico')
-    plot3(handles.axes2,y(:,1),y(:,4),y(:,2))
-    ax = gca;
-    ax.YDir = 'reverse';
-     xlabel('x'); ylabel('w'); zlabel('y');
-     zlim([-15 15]); ylim([-2 2]); xlim([-20 20]);
-    title ('Secondo Grafico')
-    grid
+     set(handles.axes1, 'YDir', 'reverse');
+     %axes labels
+     xlabel(handles.axes1,'Y'); ylabel(handles.axes1,'X'); zlabel(handles.axes1,'Z');
+     
+     %axes limits
+     set(handles.axes1,'XLim', [-15 15]);
+     set(handles.axes1,'YLim', [-20 20]);
+     set(handles.axes1,'ZLim', [-50 60]);
+     
+    plot3(handles.axes2,y(:,1),y(:,4),y(:,2),'Color', 'r')
+    set(handles.axes2, 'YDir', 'reverse');
+    %axes labels
+     xlabel(handles.axes2,'X'); ylabel(handles.axes2,'W'); zlabel(handles.axes2,'Y');
+     %axes limits
+     set(handles.axes2,'XLim', [-20 20]);
+     set(handles.axes2,'YLim', [-2 2]);
+     set(handles.axes2,'ZLim', [-15 15]);
+   
+     
     hold on;
     
     set(handles.axes2, 'Visible', 'on');
@@ -134,20 +143,22 @@ case 'Figura 17'
     tspan = [0 :0.01: 50];
     %solved ode
     [t,y] = ode45(@solve17_foo, tspan, init);
-
+    
     %grafica
     axes(handles.axes1);
     plot3(y(:,2), y(:,1), y(:,3), 'Color', 'cyan')
-    grid
-    ax = gca;
-    ax.YDir = 'reverse';
-    xlabel('y'); ylabel('x'); zlabel('z');
-    zlim([-1.5 1.5]); ylim([-0.8 0.8]); xlim([-0.8 0.8]);
-    title('Figura 17');
+    set(handles.axes1, 'YDir', 'reverse');
+    %axes labels
+     xlabel(handles.axes1,'Y'); ylabel(handles.axes1,'X'); zlabel(handles.axes1,'Z');
+     %axes limits
+     set(handles.axes1,'XLim', [-0.8 0.8]);
+     set(handles.axes1,'YLim', [-0.8 0.8]);
+     set(handles.axes1,'ZLim', [-1.5 1.5]);
+    
+     
     hold on;
     plot3( -y(:,2), -y(:,1), -y(:,3), 'Color', 'magenta')
     hold off;
-    %set(handles.axes2, 'Visible', 'off');
 
 case 'Figura 23' 
 
@@ -160,10 +171,11 @@ case 'Figura 23'
     tspan=[0 400];
     [t,y] = ode45(@solve22_foo, tspan, init);
     plot(handles.axes1,t,y(:,1))
-    xlabel('t'); ylabel('x');
-    ylim([0 0.45]); xlim(tspan);
-    
-   %set(handles.axes2, 'Visible', 'off');
+    %axes labels
+     xlabel(handles.axes1,'t'); ylabel(handles.axes1,'X'); 
+     %axes limits
+     set(handles.axes1,'XLim', tspan);
+     set(handles.axes1,'YLim', [0 0.45]);
 
 case 'Figura 26'         
     x0_var = get(handles.edit1, 'string')
@@ -184,21 +196,28 @@ case 'Figura 26'
 
     %plot 1
     plot3(handles.axes1,y(:,2), y(:,1), y(:,3), 'Color', 'magenta', 'Linewidth', 0.2)
-    grid
-    ax = gca;
-    ax.YDir = 'reverse';
-    xlabel('y'); ylabel('x'); zlabel('z');
-    zlim([-6 6]); ylim([-5 5]); xlim([-1.5 1.5]);
-    title('Figura 26.1');
+    
+     set(handles.axes1, 'YDir', 'reverse');
+     %axes labels
+     xlabel(handles.axes1,'Y'); ylabel(handles.axes1,'X'); zlabel(handles.axes1,'Z');
+     %axes limits
+     set(handles.axes1,'XLim', [-1.5 1.5]);
+     set(handles.axes1,'YLim', [-5 5]);
+      set(handles.axes1,'ZLim', [-6 6]);
+    %zlim([-6 6]); ylim([-5 5]); xlim([-1.5 1.5]);
+   % title('Figura 26.1');
 
     %plot2
     plot3(handles.axes2,y(:,1), y(:,4), y(:,2), 'Color', 'cyan', 'Linewidth', 0.2)
-    grid
-    ax = gca;
-    ax.YDir = 'reverse';
-    xlabel('y'); ylabel('x'); zlabel('z');
-    zlim([-1.5 1.5]); ylim([-3 3]); xlim([-5 5]);
-    title('Figura 26.2');
+   
+     set(handles.axes2, 'YDir', 'reverse');
+     %axes labels
+     xlabel(handles.axes2,'Y'); ylabel(handles.axes2,'X'); zlabel(handles.axes2,'Z');
+   %axes limits
+     set(handles.axes2,'XLim', [-5 5]);
+     set(handles.axes2,'YLim', [-3 3]);
+      set(handles.axes2,'ZLim',[-1.5 1.5]);
+      
     hold on;
 
     set(handles.axes2, 'Visible', 'on');
@@ -211,19 +230,22 @@ case 'Figura 29'
     z0_var = get(handles.edit2, 'string')
     z0_var = str2double(z0_var);
     init = [x0_var y0_var z0_var];
-    axes(handles.axes1);
+    
     [t,y] = ode23(@solve29_foo,tspan, init);
+   axes(handles.axes1);
     plot3(y(:,2),y(:,1),y(:,3), 'Color', 'b')
-    ax = gca;
-    ax.YDir = 'reverse';
-     xlabel('y'); ylabel('x'); zlabel('z');
-     zlim([-3 3]); ylim([-4 4]); xlim([-3 3]); 
+    set(handles.axes1, 'YDir', 'reverse');
+    %axes labels
+     xlabel(handles.axes1,'Y'); ylabel(handles.axes1,'X'); zlabel(handles.axes1,'Z');
+     %axes limits
+     set(handles.axes1,'XLim', [-3 3]);
+     set(handles.axes1,'YLim', [-4 4]);
+      set(handles.axes1,'ZLim',[-3 3]); 
      hold on
     plot3(-y(:,2),-y(:,1),-y(:,3), 'Color', 'r')
-
      hold off
-     %set(handles.axes2, 'Visible', 'off');
 
+     
 case 'Figura 32'
     tspan = [0 : 0.0003 : 0.5];
     %%N.B. l'intervallo temporale si ferma a 1/2, altrimenti l'argomento di sqrt diventa negativo 
@@ -231,10 +253,14 @@ case 'Figura 32'
     z=1-sqrt(1-2*tspan);
     %Plot
     axes(handles.axes1);
-    title('FIGURA 36');
+    %title('FIGURA 36');
     plot(tspan,z)
-     xlabel('t'); ylabel('z');
-    ylim([0 1.2]); xlim([0 0.6]);
+    %axes labels
+     xlabel(handles.axes1,'t'); ylabel(handles.axes1,'Z');
+     %axes limits
+     set(handles.axes1,'XLim', [0 0.6]);
+     set(handles.axes1,'YLim', [0 1.2]);
+    %ylim([0 1.2]); xlim([0 0.6]);
       %set(handles.axes2, 'Visible', 'off');
     
 
@@ -247,10 +273,13 @@ case 'Figura 36'
     x=3-sqrt(2*(C-10*tspan));
     %Plot
     axes(handles.axes1);
-    title('FIGURA 36');
     plot(tspan,x)
-     xlabel('t'); ylabel('x');
-    ylim([0 3.5]); xlim([0 0.4]);
+    %axes labels
+     xlabel(handles.axes1,'t'); ylabel(handles.axes1,'X');
+     %axes limits
+     set(handles.axes1,'XLim', [0 0.4]);
+     set(handles.axes1,'YLim', [0 3.5]);
+    %ylim([0 3.5]); xlim([0 0.4]);
 end
 
 
@@ -413,10 +442,10 @@ case 'Figura 26'
     set(handles.edit4,'Visible','on')
     
     %Fisso valori iniziali consigliati
-    set(handles.edit1,'String',0.001)
-    set(handles.edit2,'String',0.002)
-    set(handles.edit3,'String',0.09)
-    set(handles.edit4,'String',0.09)
+    set(handles.edit1,'String',0.77)
+    set(handles.edit2,'String',0.77)
+    set(handles.edit3,'String',0.77)
+    set(handles.edit4,'String',0.77)
 case 'Figura 29' 
     %Faccio comparire solo le variabili che servono
     set(handles.text3,'Visible','on')

@@ -94,6 +94,7 @@ case 'Figura 10'
     
     hold on;
     set(handles.axes2, 'Visible', 'on');
+    
 case 'Figura 12' 
     tspan = [0 :0.01: 100];
     x0_var = get(handles.edit1, 'string')
@@ -130,7 +131,7 @@ case 'Figura 12'
     hold on;
     
     set(handles.axes2, 'Visible', 'on');
-case 'Figura 17' 
+ case 'Figura 17' 
    % intervallo e valori iniziali
     x0_var = get(handles.edit1, 'string')
     x0_var = str2double(x0_var);

@@ -1,0 +1,287 @@
+\documentclass[12pt, a4paper]{book}
+\usepackage{amsmath}
+\begin{document}
+
+\author{Montese, Pasquini, Terrenzi}
+
+\title{Memristor oscillator on Matlab}
+\maketitle
+
+\section{Introduction}
+\subsection{What's a memristor?}
+
+
+Memristor is a passive two terminal electronic device described by a non linear
+constitutive relation
+
+                     $v=M(q)i$ or $i=W(\phi)v$
+
+ between the device terminal voltave v and 
+terminale current i.
+
+The memeristor constitutive relation is represented by the memristance and the
+memductance, defined by this equations: 
+
+$M(q) = \frac{d\phi(q)}{dq} $ and
+
+$ W(fi)=\frac{dq(\phi)}{d\phi}$
+
+In particular we note that a memristor is passive if, and only if, its 
+memristance is non-negative 
+
+$M(q)=\frac{d\phi(q)}{dq}\geq 0$
+
+We assume that the memristor ic characterized by the "monotone-increasing" and
+"piecewise-linear" nonlinearity 
+
+$fi(q)=bq+0.5(a-b)(|q+1|-|q-1|)$ and 
+
+$q(\phi)=d\phi+0.5(c-d)(|\phi+1|-|\phi-1|)$
+
+ Consequently, the memristance and the memductance are defined by 
+ 
+\begin{equation}
+M(q)=\frac{d\phi(q)}{dq}=
+\begin{cases}
+a, |q|<1
+\\
+b, |q|>1
+\end{cases}
+\end{equation}
+
+\subsection{History}
+
+Leon Chua postulated the idea of memristor in 1971, but the first real memristor
+was build only in 2008 by R. Stanley Williams from the Hewlett-Packard Company.
+The device instantly generated interest all over the world for its potential
+applications, for example in non-volatible memories, in next-generation computers,
+but also in cryptography.
+
+\subsection{Our project}
+
+The main theme of our project is the Matlab implementation of all the plots that
+can see in the paper.
+We studied the functions of various types of chaotic oscillators and finded a way
+to represent their signal on a plot.
+So, mainly, we implemented this functions on Matlab, solved differential 
+equations and created plots.
+
+But we'll see the details of our work in the next pages.
+
+\section{Plots, equations, code}
+\subsection{Fig.10}
+Fourth-order canonical memristor oscillator:
+\begin{equation}
+\begin{cases}
+\frac{dx}{dt}=\alpha(y-W(\omega)x)
+\\
+\frac{dy}{dt}=z-x
+\\
+\frac{dz}{dt}=-y\beta+z\gamma
+\\
+\frac{d\omega}{dt}=x
+\\
+\end{cases}
+\end{equation}
+
+con le seguenti equazioni:
+
+\begin{equation}
+q(\omega)=b\omega+0.5(a-b)(|\omega+1|-|\omega-1|)
+\end{equation}
+\begin{equation}
+W(\omega)=\frac{dq(\omega)}{d\omega}=
+\begin{cases}
+a, |\omega|<1
+\\
+b, |\omega|>1
+\end{cases}
+\end{equation}
+
+\subsection{Fig.12}
+Fourth-order canonical memristor oscillator:
+\begin{equation}
+\begin{cases}
+\frac{dx}{dt}=\alpha(y-W(\omega)x)
+\\
+\frac{dy}{dt}=-\xi(x+z)
+\\
+\frac{dz}{dt}=y\beta
+\\
+\frac{d\omega}{dt}=x
+\\
+\end{cases}
+\end{equation}
+
+con le seguenti equazioni:
+
+\begin{equation}
+q(\omega)=b\omega+0.5(a-b)(|\omega+1|-|\omega-1|)
+\end{equation}
+\begin{equation}
+W(\omega)=\frac{dq(\omega)}{d\omega}=
+\begin{cases}
+a, |\omega|<1
+\\
+b, |\omega|>1
+\end{cases}
+\end{equation}
+
+\subsection{Fig.17}
+Third-order canonical memristor oscillator:
+\begin{equation}
+\begin{cases}
+\frac{dx}{dt}=\alpha(y-W(z)x)
+\\
+\frac{dy}{dt}=-\xi x+\beta y
+\\
+\frac{dz}{dt}=x
+\\
+\end{cases}
+\end{equation}
+
+con le seguenti equazioni:
+
+\begin{equation}
+q(z)=bz+0.5(a-b)(|z+1|-|z-1|)
+\end{equation}
+\begin{equation}
+W(z)=\frac{dq(z)}{dz}=
+\begin{cases}
+a, |z|<1
+\\
+b, |z|>1
+\end{cases}
+\end{equation}
+
+\subsection{Fig.23}
+Second-order canonical memristor oscillator:
+\begin{equation}
+\begin{cases}
+\frac{dx}{dt}=\alpha(\beta-W(y)x)
+\\
+\frac{dy}{dt}=x
+\\
+\end{cases}
+\end{equation}
+
+con le seguenti equazioni:
+
+\begin{equation}
+q(y)=by+0.5(a-b)(|y+1|-|y-1|)
+\end{equation}
+\begin{equation}
+W(y)=\frac{dq(y)}{dt}=
+\begin{cases}
+a, |y|<1
+\\
+b, |y|>1
+\end{cases}
+\end{equation}
+
+\subsection{Fig.26}
+Fourth-order canonical memristor oscillator:
+\begin{equation}
+\begin{cases}
+\frac{dx}{dt}=\alpha(y-x+\xi x(\omega)x)
+\\
+\frac{dy}{dt}=x-y+z
+\\
+\frac{dz}{dt}=-y\beta-z\gamma
+\\
+\frac{d\omega}{dt}=x
+\\
+\end{cases}
+\end{equation}
+
+con le seguenti equazioni:
+
+\begin{equation}
+q(\omega)=b\omega+0.5(a-b)(|\omega+1|-|\omega-1|)
+\end{equation}
+\begin{equation}
+W(\omega)=\frac{dq(\omega)}{dt}=
+\begin{cases}
+a, |\omega|<1
+\\
+b, |\omega|>1
+\end{cases}
+\end{equation}
+
+\subsection{Fig.29}
+Third-order canonical memristor oscillator:
+\begin{equation}
+\begin{cases}
+\frac{dx}{dt}=\alpha(y-W(z)x+\gamma x)
+\\
+\frac{dy}{dt}=\beta x
+\\
+\frac{dz}{dt}=x
+\\
+\end{cases}
+\end{equation}
+
+con le seguenti equazioni:
+
+\begin{equation}
+q(z)=bz+0.5(a-b)(|z+1|-|z-1|)
+\end{equation}
+\begin{equation}
+W(z)=\frac{dq(z)}{dz}=
+\begin{cases}
+a, |z|<1
+\\
+b, |z|>1
+\end{cases}
+\end{equation}
+
+\subsection{Fig.32 and Fig.33}
+Second-order canonical memristor oscillator:
+\begin{equation}
+\begin{cases}
+y=(\gamma-W(z))x
+\\
+\frac{dy}{dt}=\beta x
+\\
+\frac{dz}{dt}=x
+\\
+\end{cases}
+\end{equation}
+
+con le seguenti equazioni:
+
+\begin{equation}
+q(z)=bz+0.5(a-b)(|z+1|-|z-1|)
+\end{equation}
+\begin{equation}
+W(z)=\frac{dq(z)}{dz}=
+\begin{cases}
+a, |z|<1
+\\
+b, |z|>1
+\end{cases}
+\end{equation}
+
+\subsection{Fig.35 and Fig.36}
+First-order canonical memristor oscillator:
+\begin{equation}
+\begin{cases}
+\frac{dx}{dt}=\frac{e}{W(x)-\beta}
+\end{cases}
+\end{equation}
+
+con le seguenti equazioni:
+
+\begin{equation}
+q(x)=bx+0.5(a-b)(|x+1|-|x-1|)
+\end{equation}
+\begin{equation}
+W(x)=\frac{dq(x)}{dx}=
+\begin{cases}
+a, |x|<1
+\\
+b, |x|>1
+\end{cases}
+\end{equation}
+
+\end{document}

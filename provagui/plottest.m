@@ -243,7 +243,7 @@ case 'Figura 29'
      set(handles.axes1,'YLim', [-4 4]);
       set(handles.axes1,'ZLim',[-3 3]); 
      hold on
-    plot3(-y(:,2),-y(:,1),-y(:,3), 'Color', 'r')
+    plot3(y(:,2),y(:,1), y(:,3), 'Color', 'r')
      hold off
 
      

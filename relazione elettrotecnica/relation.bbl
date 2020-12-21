@@ -1,0 +1,29 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Itoh%
+\ \BBA {} Chua%
+}{%
+Itoh%
+\ \BBA {} Chua%
+}{%
+{\protect \APACyear {2008}}%
+}]{%
+itoh2008memristor}
+\APACinsertmetastar {%
+itoh2008memristor}%
+\begin{APACrefauthors}%
+Itoh, M.%
+\BCBT {}\ \BBA {} Chua, L\BPBI O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Memristor oscillators} {Memristor oscillators}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International journal of bifurcation and
+  chaos}{18}{11}{3183--3206}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
